@@ -32,17 +32,10 @@ let diceSix = document.querySelector('.diceSix')
 
 
 roll.addEventListener('click' , function(){
-    // if(diceOne.classList.contains('diceOne'))
-    // diceOne.classList.remove('diceOne')
-    // diceOne.classList.add('diceThree')
+    randomizeNumbers()
+
     // diceOne.value = 3
-    // console.log(diceOne.value)
-    // console.log(diceOne.classList.contains('diceThree'))
-    // if(diceTwo.classList.contains('dicetwo')){
-    //     diceTwo.classList.remove('diceTwo')
-    //     diceTwo.classList.add('diceFive')
-    //     diceTwo.value = 5
-    // }    
+    
 })
 
 
@@ -52,7 +45,7 @@ roll.addEventListener('click' , function(){
         
         // First Dice
         
-        console.log(rand1);
+        // console.log(rand1);
 
         if(rand1 === 1){
             // console.log('The random is 1')
@@ -117,7 +110,7 @@ roll.addEventListener('click' , function(){
 
         // Second Dice
 
-        console.log(rand2)
+        // console.log(rand2)
 
        if(rand2 === 1){
             // console.log('The random is 1')
@@ -181,4 +174,3 @@ roll.addEventListener('click' , function(){
 
 
     }
-    randomizeNumbers()
