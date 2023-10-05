@@ -27,8 +27,7 @@ body{
     background-color: seagreen;
     height: 90%;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* gap: 50px; */
+    grid-template-columns: 1fr 400px 1fr;
 
 
 }
@@ -36,7 +35,7 @@ body{
 /* Left Side */
 .left{
     grid-column: 1;
-    background-color: brown;
+    background-color: darkolivegreen;
     
 }
 
@@ -47,6 +46,7 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 10%;
+    color: rgb(221, 69, 69);
 
 }
 
@@ -59,14 +59,15 @@ body{
     margin-top: 10%;
 }
 
-.score1,
-.score2{
+.score1Box,
+.score2Box{
     margin-top: 100%;
-    margin-left: 50px;
-    margin-right: 50px;
-    padding: 10px;
-    border: 1px solid white;
-
+    margin-left: 120px;
+    margin-right: 120px;
+    padding: 20px 10px;
+    border: 1px solid rgb(238, 255, 0);
+    border-radius: 10px;
+    background-color: rgb(194, 172, 46)
 }
 .currentScore1,
 .currentScore2{
@@ -88,8 +89,79 @@ body{
 
 /* MIDDLE */
 
+.mid{
+    grid-column: 2;
+}
 
+.mid p{
+    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
 
+}
+
+.target{
+
+    margin-top: 15px;
+    margin-left: 30%;
+    background-color: salmon;
+    height: 30px;
+}
+
+.start{
+    margin-left: 35%;
+    margin-top: 13px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 50px;
+    background-color: greenyellow;
+}
+
+.img1{
+    background: url(./assets/dice-1.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+
+}
+
+.img2{
+    background: url(./assets/dice-2.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+
+}
+
+.roll , .hold , .reset{
+    margin-left: 30%;
+    margin-top: 13px;
+    padding: 10px 50px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 50px;
+    background-color: gold;
+}
+
+.hold{
+
+    margin-left: 33%;
+  
+}
+
+.reset{
+    background-color: crimson;
+    color: white;
+}
 
 
 /* right Side */
