@@ -59,6 +59,17 @@ body{
     margin-top: 10%;
 }
 
+.winner1,
+.winner2{
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    color: rgb(90, 22, 153)
+}
+
+
 .score1Box,
 .score2Box{
     margin-top: 100%;
