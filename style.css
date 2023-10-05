@@ -121,25 +121,6 @@ body{
     background-color: greenyellow;
 }
 
-.img1{
-    background: url(./assets/dice-1.png) center center  no-repeat;
-    background-size: cover;
-    width: 100px;
-    height: 100px;
-    margin-left: 40%;
-    margin-bottom: 50px;
-
-}
-
-.img2{
-    background: url(./assets/dice-2.png) center center  no-repeat;
-    background-size: cover;
-    width: 100px;
-    height: 100px;
-    margin-left: 40%;
-    margin-bottom: 50px;
-
-}
 
 .roll , .hold , .reset{
     margin-left: 30%;
@@ -170,4 +151,71 @@ body{
     grid-column: 3;
     background-color: darkkhaki;
 }
+
+
+/* DICES */
+
+.diceOne{
+    background: url(./assets/dice-1.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+.diceTwo{
+    background: url(./assets/dice-2.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+.diceThree{
+    background: url(./assets/dice-3.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+.diceFour{
+    background: url(./assets/dice-4.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+.diceFive{
+    background: url(./assets/dice-5.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+.diceSix{
+    background: url(./assets/dice-6.png) center center  no-repeat;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+
+
+/* ------------------------------------------------------------------- */
+
+.hiddenDice{
+    display: none;
+}
+
+
+
 
