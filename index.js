@@ -1,4 +1,18 @@
 
+//test
+
+
+// let left = document.querySelector('.left')
+// let right = document.querySelector('.right')
+// let players = [left , right] 
+// let turn = 0;
+
+// //function
+// let currentPlayer = players[turn]
+
+// // if clicked on hold => turn++
+// // clicked again = if turn === players.length , turn = 0;
+//------------------------------------------------
 
 
 // Buttons
@@ -32,178 +46,242 @@ let playerTwoTotal = document.querySelector('.total2')
 let currentScoreOf1 = document.querySelector('.currentScoreOf1')
 let currentScoreOf2 = document.querySelector('.currentScoreOf2')
 
-roll.addEventListener('click' , function(){
-    randomizeNumbers()    
-})
+// Winner Text
+let winner1 = document.querySelector('.winner1')
+let winner2 = document.querySelector('.winner2')
 
-
+// Total Score
 playerOneTotal.innerText = 0 
 playerTwoTotal.innerText = 0 
 currentScoreOf1.innerText = 0
 currentScoreOf2.innerText = 0
 
+// settings
+start.disabled = false;
+hold.disabled = true;
+roll.disabled = true;
+input.value = 30;
 
+
+
+start.addEventListener('click' , function() {
+    roll.disabled = false;
+    start.disabled = true;
+    input.disabled = true;
+    if(currentScoreOf1.innerText === '0'){
+        hold.disabled = true;
+
+    }
+    
+})
+
+roll.addEventListener('click' , function(){
+    randomizeNumbers() 
+    hold.disabled = false;
+    if(parseInt(playerOneTotal.innerText) >= input.value ||
+        parseInt(currentScoreOf1.innerText) >= input.value){ 
+        roll.disabled = true 
+        winner1.innerText = 'Congratz You Won!'
+    } 
+   
+})
+
+
+hold.addEventListener('click' , function() {
+    playerTotalPlus()
+    if(currentScoreOf1.innerText === '0'){
+        hold.disabled = true;
+    } 
+    if(parseInt(playerOneTotal.innerText) >= input.value ){
+        winner1.innerText = 'Congratz You Won!'
+
+    }
+    console.log(playerOneTotal.innerText)
+
+
+    if(parseInt(playerOneTotal.innerText) >= input.value){
+    roll.disabled = true;
+    }
+    // turn++
+    // if(turn === players.length){
+        //     turn = 0
+    // }
+    // console.log(players[0])
+    // console.log(players[1])
+})
+
+
+//  random dice numbers function
 const randomizeNumbers = ()=>{
     let rand1 = Math.ceil(Math.random()*6)
     let rand2 = Math.ceil(Math.random()*6)
 
 
-    // First Dice
+        // First Dice   
+if(rand1 === 1){
+    if(!firstDice.classList.contains('diceOne')){
+    let remove = firstDice.classList.item(1)
+    firstDice.classList.remove(remove)
+    firstDice.classList.add('diceOne')
+    }
+    currentPlus(1)
+    }
         
-    if(rand1 === 1){
-        // console.log('The random is 1')
-        if(!firstDice.classList.contains('diceOne')){
-            let remove = firstDice.classList.item(1)
-            firstDice.classList.remove(remove)
-            firstDice.classList.add('diceOne')
-        }
-        currentPlus(1)
+else if(rand1 === 2){
+    if(!firstDice.classList.contains('diceTwo')){
+    let remove = firstDice.classList.item(1)
+    firstDice.classList.remove(remove)
+    firstDice.classList.add('diceTwo')
+    }
+    currentPlus(2)         
+    }
+        
+else if(rand1 === 3){
+    if(!firstDice.classList.contains('diceThree')){
+    let remove = firstDice.classList.item(1)
+    firstDice.classList.remove(remove)
+    firstDice.classList.add('diceThree')
+    }
+    currentPlus(3)        
+    }
 
-        }
-        
-        else if(rand1 === 2){
-            // console.log('The random is 2')
-            if(!firstDice.classList.contains('diceTwo')){
-                let remove = firstDice.classList.item(1)
-                firstDice.classList.remove(remove)
-                firstDice.classList.add('diceTwo')
-            }
-            currentPlus(2)
-            
-        }
-        
-        else if(rand1 === 3){
-            // console.log('The random is 3')
-            if(!firstDice.classList.contains('diceThree')){
-                let remove = firstDice.classList.item(1)
-                firstDice.classList.remove(remove)
-                firstDice.classList.add('diceThree')
-            }
-            currentPlus(3)
-            
-        }
+else if(rand1 === 4){
+    if(!firstDice.classList.contains('diceFour')){
+    let remove = firstDice.classList.item(1)
+    firstDice.classList.remove(remove)
+    firstDice.classList.add('diceFour') 
+    }
+    currentPlus(4)       
+    }
 
-        else if(rand1 === 4){
-            // console.log('The random is 4')
-            if(!firstDice.classList.contains('diceFour')){
-                let remove = firstDice.classList.item(1)
-                firstDice.classList.remove(remove)
-                firstDice.classList.add('diceFour') 
-            }
-            currentPlus(4)
+else if(rand1 === 5){
+    if(!firstDice.classList.contains('diceFive')){
+    let remove = firstDice.classList.item(1)
+    firstDice.classList.remove(remove)
+    firstDice.classList.add('diceFive')
+    }
+    currentPlus(5)         
+    }
             
-        }
+else if(rand1 === 6){
+    if(!firstDice.classList.contains('diceSix')){
+    let remove = firstDice.classList.item(1)
+    firstDice.classList.remove(remove)
+    firstDice.classList.add('diceSix')
+    }
+    currentPlus(6)
+    }
+    
+     
+        // Second Dice   
+if(rand2 === 1){
+    if(!secondDice.classList.contains('diceOne')){
+    let remove = secondDice.classList.item(1)
+    secondDice.classList.remove(remove)
+    secondDice.classList.add('diceOne')
+    }
+    currentPlus(1)
+    }
 
-        else if(rand1 === 5){
-            // console.log('The random is 5')
-            if(!firstDice.classList.contains('diceFive')){
-                let remove = firstDice.classList.item(1)
-                firstDice.classList.remove(remove)
-                firstDice.classList.add('diceFive')
-            }
-            currentPlus(5)
-                
-            }
-            
-            else if(rand1 === 6){
-                // console.log('The random is 6')
-            if(!firstDice.classList.contains('diceSix')){
-                let remove = firstDice.classList.item(1)
-                firstDice.classList.remove(remove)
-                firstDice.classList.add('diceSix')
-            }
-            currentPlus(6)
-        }
+else if(rand2 === 2){
+    if(!secondDice.classList.contains('diceTwo')){
+    let remove = secondDice.classList.item(1)
+    secondDice.classList.remove(remove)
+    secondDice.classList.add('diceTwo')
+    }
+    currentPlus(2)         
+    }
+
+else if(rand2 === 3){
+    if(!secondDice.classList.contains('diceThree')){
+    let remove = secondDice.classList.item(1)
+    secondDice.classList.remove(remove)
+    secondDice.classList.add('diceThree')
+    }
+    currentPlus(3)
+    }
         
+else if(rand2 === 4){
+    if(!secondDice.classList.contains('diceFour')){
+    let remove = secondDice.classList.item(1)
+    secondDice.classList.remove(remove)
+    secondDice.classList.add('diceFour')
+    }
+    currentPlus(4)
+    }
+
+else if(rand2 === 5){
+    if(!secondDice.classList.contains('diceFive')){
+    let remove = secondDice.classList.item(1)
+    secondDice.classList.remove(remove)
+    secondDice.classList.add('diceFive')
+    }
+    currentPlus(5)        
+    }
         
-        // Second Dice
-        
-        // console.log(rand2)
-        
-        if(rand2 === 1){
-            // console.log('The random is 1')
-            if(!secondDice.classList.contains('diceOne')){
-            let remove = secondDice.classList.item(1)
-            secondDice.classList.remove(remove)
-            secondDice.classList.add('diceOne')
-        }
-        currentPlus(1)
+else if(rand2 === 6){
+    if(!secondDice.classList.contains('diceSix')){
+    let remove = secondDice.classList.item(1)
+    secondDice.classList.remove(remove)
+    secondDice.classList.add('diceSix')
+    }
+    currentPlus(6)
+    }
+   
+    // reset total
+    if(rand1 === 6 && rand2 === 6){
+    playerOneTotal.innerText = 0
+    currentScoreOf1.innerText = 0          
+    }
 
     }
 
-    else if(rand2 === 2){
-            // console.log('The random is 2')
-            if(!secondDice.classList.contains('diceTwo')){
-                let remove = secondDice.classList.item(1)
-                secondDice.classList.remove(remove)
-                secondDice.classList.add('diceTwo')
-            }
-            currentPlus(2)
-            
-        }
-
-        else if(rand2 === 3){
-            // console.log('The random is 3')
-            if(!secondDice.classList.contains('diceThree')){
-            let remove = secondDice.classList.item(1)
-            secondDice.classList.remove(remove)
-            secondDice.classList.add('diceThree')
-        }
-        currentPlus(3)
-
-        }
+// functions ---------------------------------------------------------------
         
-        else if(rand2 === 4){
-            // console.log('The random is 4')
-            if(!secondDice.classList.contains('diceFour')){
-                let remove = secondDice.classList.item(1)
-                secondDice.classList.remove(remove)
-                secondDice.classList.add('diceFour')
-            }
-            currentPlus(4)
+function currentPlus(n){
+    currentScoreOf1.innerText =  parseInt(currentScoreOf1.innerText ) + n;
+    }
 
-        }
-
-        else if(rand2 === 5){
-            // console.log('The random is 5')
-            if(!secondDice.classList.contains('diceFive')){
-                let remove = secondDice.classList.item(1)
-                secondDice.classList.remove(remove)
-                secondDice.classList.add('diceFive')
-            }
-            currentPlus(5)
-                
-            }
+function playerTotalPlus(){
+    playerOneTotal.innerText =  parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText );
+    currentScoreOf1.innerText = 0
+    }
         
-            else if(rand2 === 6){
-            // console.log('The random is 6')
-            if(!secondDice.classList.contains('diceSix')){
-                let remove = secondDice.classList.item(1)
-                secondDice.classList.remove(remove)
-                secondDice.classList.add('diceSix')
-            }
-            currentPlus(6)
-            }
+// --------------------------------------------------------
+     //Test
+    let player1 = document.querySelector('.left')
+    let player2 = document.querySelector('.right')
+    let players = [player1 , player2] 
+    // let turn = 0;
+    
+    // player1 = 'p1'
+    // player2 = 'p2'
+    // currentPlayer = player1
+    
+    //function
+    // let currentPlayer = players[turn]
 
-            // if(rand1 && rand2 === 6){
-            //     alert('You Have Lost')
-            //     window.location.reload()
+    // function switchPlayer(){
+    //     if(currentPlayer === player1){
+    //         currentPlayer = player2 
+    //     }
+    //     else{
+    //         currentPlayer = player1
+    //     }
+
+    // }
+    
+    // if clicked on hold => turn++
+    // clicked again = if turn === players.length , turn = 0;
+    // players[turn]
+    
+
+    // --------------------------------------------------------------
 
 
-            // }
-
-            
-        }
-        // GAME RESET
-        resetBtn.addEventListener('click', function() {
-            window.location.reload()
-        })
-
-
-        function currentPlus(n){
-            currentScoreOf1.innerText =  parseInt(currentScoreOf1.innerText ) + n;
-        }
-
-        start.addEventListener('click' , function() {
-            // console.log(input.value)
-        })
+        
+        
+    // GAME RESET
+resetBtn.addEventListener('click', function() {
+    window.location.reload()
+})
