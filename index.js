@@ -44,7 +44,10 @@ currentScoreOf2.innerText = 0
 start.disabled = false;
 hold.disabled = true;
 roll.disabled = true;
-input.value = 100;
+input.value = 30;
+let player1 = 'p1'
+let player2 = 'p2'
+    
 
 
 
@@ -52,6 +55,7 @@ start.addEventListener('click' , function() {
     roll.disabled = false;
     start.disabled = true;
     input.disabled = true;
+    player1 = 'p1'
     if(currentScoreOf1.innerText === '0'){
         hold.disabled = true;
 
@@ -62,34 +66,35 @@ start.addEventListener('click' , function() {
 roll.addEventListener('click' , function(){
     randomizeNumbers() 
     hold.disabled = false;
+
     if(parseInt(playerOneTotal.innerText) >= input.value ||
         parseInt(currentScoreOf1.innerText) >= input.value){ 
         roll.disabled = true 
         winner1.innerText = 'Congratz You Won!'
     } 
+
+    if(parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText) >= input.value ){
+        playerOneTotal.innerText = parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText)
+        winner1.innerText = 'Congratz You Won!'
+        roll.disabled = true;
+        hold.disabled = true;
+    }
    
 })
 
 
 hold.addEventListener('click' , function() {
     playerTotalPlus()
+    switchPlayer('p1')
     if(currentScoreOf1.innerText === '0'){
         hold.disabled = true;
     } 
     if(parseInt(playerOneTotal.innerText) >= input.value ){
         winner1.innerText = 'Congratz You Won!'
+        roll.disabled = true;
     }
 
 
-    if(parseInt(playerOneTotal.innerText) >= input.value){
-    roll.disabled = true;
-    }
-    // turn++
-    // if(turn === players.length){
-        //     turn = 0
-    // }
-    // console.log(players[0])
-    // console.log(players[1])
 })
 
 
@@ -229,29 +234,24 @@ function playerTotalPlus(){
     currentScoreOf1.innerText = 0
     }
         
+    
+function switchPlayer(currentPlayer){
+    if(currentPlayer === 'p1'){
+    currentPlayer = 'p2' 
+    }
+    else{
+    currentPlayer = 'p1'
+    }
+    
+    }
 // --------------------------------------------------------
      //Test
-    let player1 = document.querySelector('.left')
-    let player2 = document.querySelector('.right')
-    let players = [player1 , player2] 
+   
+    // let players = [player1 , player2] 
     // let turn = 0;
     
-    // player1 = 'p1'
-    // player2 = 'p2'
-    // currentPlayer = player1
     
-    //function
     // let currentPlayer = players[turn]
-
-    // function switchPlayer(){
-    //     if(currentPlayer === player1){
-    //         currentPlayer = player2 
-    //     }
-    //     else{
-    //         currentPlayer = player1
-    //     }
-
-    // }
     
     // if clicked on hold => turn++
     // clicked again = if turn === players.length , turn = 0;
