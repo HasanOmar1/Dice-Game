@@ -1,20 +1,4 @@
 
-//test
-
-
-// let left = document.querySelector('.left')
-// let right = document.querySelector('.right')
-// let players = [left , right] 
-// let turn = 0;
-
-// //function
-// let currentPlayer = players[turn]
-
-// // if clicked on hold => turn++
-// // clicked again = if turn === players.length , turn = 0;
-//------------------------------------------------
-
-
 // Buttons
 let resetBtn = document.querySelector('.reset')
 let start = document.querySelector('.start')
@@ -60,7 +44,7 @@ currentScoreOf2.innerText = 0
 start.disabled = false;
 hold.disabled = true;
 roll.disabled = true;
-input.value = 30;
+input.value = 100;
 
 
 
@@ -94,9 +78,7 @@ hold.addEventListener('click' , function() {
     } 
     if(parseInt(playerOneTotal.innerText) >= input.value ){
         winner1.innerText = 'Congratz You Won!'
-
     }
-    console.log(playerOneTotal.innerText)
 
 
     if(parseInt(playerOneTotal.innerText) >= input.value){
