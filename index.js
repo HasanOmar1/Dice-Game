@@ -1,28 +1,4 @@
-//testing
 
-
-let activePlayer = 1
-let players = [1 , 2] 
-let turn = 0;
-
-// nextPlayer()
-
-// activePlayer = players[turn]
-// let playerTotal = document.querySelector(`.total${activePlayer}`) 
-// let playerWinner = document.querySelector(`.winner${activePlayer}`) 
-// let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
-
-
-// activePlayer = activePlayer === 1 ? 2 : 1 ;
-
-
-
-// ------------------------------------------------------------
-
-
-// // Turn checker
-// let checkTurn = document.querySelector(`.check${activePlayer}`)
-// checkTurn.style.display = 'block'
 
 // Buttons
 let resetBtn = document.querySelector('.reset')
@@ -65,6 +41,21 @@ playerTwoTotal.innerText = 0
 currentScoreOf1.innerText = 0
 currentScoreOf2.innerText = 0
 
+// Player Turn
+let activePlayer = 1
+let players = [1 , 2] 
+let turn = 0;
+
+let playerTotal = document.querySelector(`.total${activePlayer}`) 
+let playerWinner = document.querySelector(`.winner${activePlayer}`) 
+let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+
+// Turn checker
+let turnCheck  = () => {
+    let checkTurn = document.querySelector(`.check${activePlayer}`)
+    checkTurn.style.display = 'block'
+}    
+
 // settings
 start.disabled = false;
 hold.disabled = true;
@@ -72,24 +63,6 @@ roll.disabled = true;
 input.value = 100;
 
 
-console.log(activePlayer)
-
-
-
-start.addEventListener('click' , function() {
-    
-    roll.disabled = false;
-    start.disabled = true;
-    input.disabled = true;
-    // if(playerScore.innerText === '0'){
-        //     hold.disabled = true;
-        
-    // }
-    
-    
-    
-})
-// console.log(activePlayer)
 
 // functions ---------------------------------------------------------------
 
@@ -105,21 +78,41 @@ function playerTotalPlus(){
 
 
 
-    function nextPlayer(){
+   let nextPlayer =  () => {
         
-        turn++
-        activePlayer = players[turn]
-        turn === players.length ? turn = 0 : turn
-        activePlayer = players[turn]    
+       turn++
+       activePlayer = players[turn]
+       turn === players.length ? turn = 0 : turn
+       activePlayer = players[turn]  
+
+        playerTotal = document.querySelector(`.total${activePlayer}`) 
+        playerWinner = document.querySelector(`.winner${activePlayer}`) 
+        playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+        checkTurn = document.querySelector(`.check${activePlayer}`)
+
+        
+        
+        
     }
-    
     
 
     // --------------------------------------------------------------
-   
+    
     //-----------------------------------------------------------------------------------------------
     
-    hold.addEventListener('click' , function() {
+    start.addEventListener('click' , function() {
+        
+        roll.disabled = false;
+        start.disabled = true;
+        input.disabled = true;
+    
+        
+        
+        
+    })
+
+
+    hold.addEventListener('click' , () => {
         playerTotalPlus()
         nextPlayer()
         console.log(activePlayer)
@@ -130,24 +123,21 @@ function playerTotalPlus(){
                 
     })
     
+        
+            
+    roll.addEventListener('click' , function(){
+        randomizeNumbers() 
+        hold.disabled = false;
+
+        if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
+        playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
+            playerWinner.innerText = 'We Have a Winner!'
+            roll.disabled = true;
+            hold.disabled = true;
+            
+        }
     
-
-    // -------------------------------------------------------------------
-
-        
-        
-roll.addEventListener('click' , function(){
-    randomizeNumbers() 
-    hold.disabled = false;
-
-    if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
-    playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
-        playerWinner.innerText = 'We Have a Winner!'
-        roll.disabled = true;
-        hold.disabled = true;
-    }
- 
-})
+    })
 
 
 
@@ -289,13 +279,13 @@ resetBtn.addEventListener('click', function() {
     window.location.reload()
 })
 
-// Turn checker
-let checkTurn = document.querySelector(`.check${activePlayer}`)
-checkTurn.style.display = 'block'
+// // Turn checker
+// let checkTurn = document.querySelector(`.check${activePlayer}`)
+// checkTurn.style.display = 'block'
 
 
-let playerTotal = document.querySelector(`.total${activePlayer}`) 
-let playerWinner = document.querySelector(`.winner${activePlayer}`) 
-let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+// let playerTotal = document.querySelector(`.total${activePlayer}`) 
+// let playerWinner = document.querySelector(`.winner${activePlayer}`) 
+// let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 
