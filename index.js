@@ -1,4 +1,23 @@
+//testing
 
+
+let activePlayer = 1
+let players = [1 , 2] 
+let turn = 0;
+
+// nextPlayer()
+
+// activePlayer = players[turn]
+let playerTotal = document.querySelector(`.total${activePlayer}`) 
+let playerWinner = document.querySelector(`.winner${activePlayer}`) 
+let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+
+
+// activePlayer = activePlayer === 1 ? 2 : 1 ;
+
+
+
+// ------------------------------------------------------------
 // Buttons
 let resetBtn = document.querySelector('.reset')
 let start = document.querySelector('.start')
@@ -44,64 +63,175 @@ currentScoreOf2.innerText = 0
 start.disabled = false;
 hold.disabled = true;
 roll.disabled = true;
-input.value = 30;
-let player1 = 'p1'
-let player2 = 'p2'
-    
+input.value = 100;
 
+
+console.log(activePlayer)
 
 
 start.addEventListener('click' , function() {
+
     roll.disabled = false;
     start.disabled = true;
     input.disabled = true;
-    player1 = 'p1'
-    if(currentScoreOf1.innerText === '0'){
-        hold.disabled = true;
-
-    }
+    // if(playerScore.innerText === '0'){
+    //     hold.disabled = true;
+        
+    // }
+    
+    
     
 })
+// console.log(activePlayer)
+
+// functions ---------------------------------------------------------------
+
+function currentPlus(n){
+    playerScore.innerText =  parseInt(playerScore.innerText ) + n;
+}
+
+
+function playerTotalPlus(){
+    playerTotal.innerText =  parseInt(playerTotal.innerText) + parseInt(playerScore.innerText );
+    playerScore.innerText = 0
+}
+
+
+    
+    function nextPlayer(){
+
+        turn++
+        activePlayer = players[turn]
+        turn === players.length ? turn = 0 : turn
+        activePlayer = players[turn]
+        
+    }
+
+ 
+    
+    // --------------------------------------------------------------
+    
+    //Test
+    
+    
+    // let players = [1 , 2] 
+    // let turn = 0;
+
+    // let currentPlayer = players[turn]
+    // console.log(currentPlayer)
+    // console.log(players)
+    // console.log(currentPlayer)
+    
+    
+    
+    // nextPlayer()
+    // console.log(activePlayer)
+    // console.log(activePlayer)
+
+    // console.log(activePlayer)
+
+    // console.log(turn)
+    // console.log(currentPlayer)
+
+
+
+    
+    
+    // if clicked on hold => turn++
+    // clicked again = if turn === players.length , turn = 0;
+    // players[turn]
+    
+
+    // --------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------
+
+hold.addEventListener('click' , function() {
+    nextPlayer()
+    playerTotalPlus()
+    console.log(activePlayer)
+    
+    // if(currentScoreOf1.innerText === '0'){
+        //     hold.disabled = true;
+        // } 
+        // if(parseInt(playerOneTotal.innerText) >= input.value ){
+            //     winner1.innerText = 'Congratz You Won!'
+        //     roll.disabled = true;
+        // }
+        
+        if(playerScore.innerText === '0'){
+            hold.disabled = true;
+        } 
+
+        // make sure i can remove it 
+        // if(parseInt(playerTotal.innerText) >= input.value ){
+        //     playerWinner.innerText = 'We Have a Winner!'
+        //     roll.disabled = true;
+        // }
+})
+
+
+// -------------------------------------------------------------------
+//testing
+
+// console.log(activePlayer)
+
+// hold.addEventListener('click' , function(){
+//     nextPlayer()
+// } 
+
+// -------------------------------------------------------------------
+
+
+
 
 roll.addEventListener('click' , function(){
     randomizeNumbers() 
     hold.disabled = false;
 
-    if(parseInt(playerOneTotal.innerText) >= input.value ||
-        parseInt(currentScoreOf1.innerText) >= input.value){ 
-        roll.disabled = true 
-        winner1.innerText = 'Congratz You Won!'
+    // console.log(activePlayer)
+
+    // if(parseInt(playerOneTotal.innerText) >= input.value ||
+    //     parseInt(currentScoreOf1.innerText) >= input.value){ 
+    //     roll.disabled = true
+        // winner1.innerText = 'Congratz You Won!'
+    // } 
+
+    // if(parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText) >= input.value ){
+    //     playerOneTotal.innerText = parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText)
+    //     winner1.innerText = 'Congratz You Won!'
+    //     roll.disabled = true;
+    //     hold.disabled = true;
+    // }
+    
+
+    if(parseInt(playerTotal.innerText) >= input.value ||
+    parseInt(playerScore.innerText) >= input.value){ 
+    roll.disabled = true
+    playerWinner.innerText = `We Have a Winner!`
     } 
 
-    if(parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText) >= input.value ){
-        playerOneTotal.innerText = parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText)
-        winner1.innerText = 'Congratz You Won!'
+    if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
+        playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
+        playerWinner.innerText = 'We Have a Winner!'
         roll.disabled = true;
         hold.disabled = true;
     }
+    
+
+    
+
    
 })
 
 
-hold.addEventListener('click' , function() {
-    playerTotalPlus()
-    switchPlayer('p1')
-    if(currentScoreOf1.innerText === '0'){
-        hold.disabled = true;
-    } 
-    if(parseInt(playerOneTotal.innerText) >= input.value ){
-        winner1.innerText = 'Congratz You Won!'
-        roll.disabled = true;
-    }
-
-
-})
 
 
 //  random dice numbers function
 const randomizeNumbers = ()=>{
     let rand1 = Math.ceil(Math.random()*6)
     let rand2 = Math.ceil(Math.random()*6)
+
 
 
         // First Dice   
@@ -217,51 +347,23 @@ else if(rand2 === 6){
    
     // reset total
     if(rand1 === 6 && rand2 === 6){
-    playerOneTotal.innerText = 0
-    currentScoreOf1.innerText = 0          
+    playerTotal.innerText = 0
+    playerScore.innerText = 0  
+    // nextPlayer()
+    // console.log(activePlayer)        
     }
 
     }
 
-// functions ---------------------------------------------------------------
-        
-function currentPlus(n){
-    currentScoreOf1.innerText =  parseInt(currentScoreOf1.innerText ) + n;
-    }
 
-function playerTotalPlus(){
-    playerOneTotal.innerText =  parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText );
-    currentScoreOf1.innerText = 0
-    }
-        
-    
-function switchPlayer(currentPlayer){
-    if(currentPlayer === 'p1'){
-    currentPlayer = 'p2' 
-    }
-    else{
-    currentPlayer = 'p1'
-    }
-    
-    }
 // --------------------------------------------------------
-     //Test
-   
-    // let players = [player1 , player2] 
-    // let turn = 0;
-    
-    
-    // let currentPlayer = players[turn]
-    
-    // if clicked on hold => turn++
-    // clicked again = if turn === players.length , turn = 0;
-    // players[turn]
-    
-
-    // --------------------------------------------------------------
+ 
+// let playerTotal = document.querySelector(`.total${activePlayer}`) 
+// let playerWinner = document.querySelector(`.winner${activePlayer}`) 
+// let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 
-        
+
         
     // GAME RESET
 resetBtn.addEventListener('click', function() {
