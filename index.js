@@ -51,10 +51,12 @@ let playerWinner = document.querySelector(`.winner${activePlayer}`)
 let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 // Turn checker
-let turnCheck  = () => {
-    let checkTurn = document.querySelector(`.check${activePlayer}`)
-    checkTurn.style.display = 'block'
-}    
+let playerOneTurn = document.querySelector(`#check1`)
+let playerTwoTurn = document.querySelector(`#check2`)
+
+playerOneTurn.classList.toggle('check1')
+
+
 
 // settings
 start.disabled = false;
@@ -79,24 +81,26 @@ function playerTotalPlus(){
 
 
    let nextPlayer =  () => {
-        
+       
        turn++
        activePlayer = players[turn]
        turn === players.length ? turn = 0 : turn
        activePlayer = players[turn]  
-
-        playerTotal = document.querySelector(`.total${activePlayer}`) 
-        playerWinner = document.querySelector(`.winner${activePlayer}`) 
-        playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
-        checkTurn = document.querySelector(`.check${activePlayer}`)
-
-        
-        
-        
+       
+       playerTotal = document.querySelector(`.total${activePlayer}`) 
+       playerWinner = document.querySelector(`.winner${activePlayer}`) 
+       playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+       
     }
     
-
-    // --------------------------------------------------------------
+    let turnCheck  = () => {
+    
+        if(activePlayer = 1){
+            playerOneTurn.classList.toggle('check1')
+            playerTwoTurn.classList.toggle('check2')
+        }
+       
+    }    
     
     //-----------------------------------------------------------------------------------------------
     
@@ -114,9 +118,8 @@ function playerTotalPlus(){
 
     hold.addEventListener('click' , () => {
         playerTotalPlus()
-        nextPlayer()
-        console.log(activePlayer)
-        
+        nextPlayer()  
+        turnCheck()      
         if(playerScore.innerText === '0'){
         hold.disabled = true;
         } 

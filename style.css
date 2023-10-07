@@ -100,15 +100,14 @@ body{
 .container{
     position: relative;
 }
-.check1 ,
-.check2{
+.check1{
     position: absolute;
     width: 10px;
     height: 10px;
     background-color: blue;
     bottom: 15px;
     left: 78%;
-    display: none;
+    display: block;
     
 }
 
@@ -124,11 +123,11 @@ body{
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-
+    
 }
 
 .target{
-
+    
     margin-top: 15px;
     margin-left: 30%;
     background-color: salmon;
@@ -159,9 +158,9 @@ body{
 }
 
 .hold{
-
+    
     margin-left: 33%;
-  
+    
 }
 
 .reset{
@@ -177,6 +176,16 @@ body{
     background-color: darkkhaki;
 }
 
+.check2{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: springgreen;
+    bottom: 15px;
+    left: 78%;
+    display: block;
+    
+}
 
 /* DICES */
 
