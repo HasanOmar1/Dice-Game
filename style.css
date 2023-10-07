@@ -97,6 +97,20 @@ body{
     margin-top: 15px;
 
 }
+.container{
+    position: relative;
+}
+.check1 ,
+.check2{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    bottom: 15px;
+    left: 78%;
+    display: none;
+    
+}
 
 /* MIDDLE */
 

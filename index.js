@@ -8,9 +8,9 @@ let turn = 0;
 // nextPlayer()
 
 // activePlayer = players[turn]
-let playerTotal = document.querySelector(`.total${activePlayer}`) 
-let playerWinner = document.querySelector(`.winner${activePlayer}`) 
-let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+// let playerTotal = document.querySelector(`.total${activePlayer}`) 
+// let playerWinner = document.querySelector(`.winner${activePlayer}`) 
+// let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 
 // activePlayer = activePlayer === 1 ? 2 : 1 ;
@@ -18,6 +18,12 @@ let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`)
 
 
 // ------------------------------------------------------------
+
+
+// // Turn checker
+// let checkTurn = document.querySelector(`.check${activePlayer}`)
+// checkTurn.style.display = 'block'
+
 // Buttons
 let resetBtn = document.querySelector('.reset')
 let start = document.querySelector('.start')
@@ -69,13 +75,14 @@ input.value = 100;
 console.log(activePlayer)
 
 
-start.addEventListener('click' , function() {
 
+start.addEventListener('click' , function() {
+    
     roll.disabled = false;
     start.disabled = true;
     input.disabled = true;
     // if(playerScore.innerText === '0'){
-    //     hold.disabled = true;
+        //     hold.disabled = true;
         
     // }
     
@@ -97,131 +104,49 @@ function playerTotalPlus(){
 }
 
 
-    
-    function nextPlayer(){
 
+    function nextPlayer(){
+        
         turn++
         activePlayer = players[turn]
         turn === players.length ? turn = 0 : turn
-        activePlayer = players[turn]
-        
+        activePlayer = players[turn]    
     }
-
- 
     
-    // --------------------------------------------------------------
-    
-    //Test
-    
-    
-    // let players = [1 , 2] 
-    // let turn = 0;
-
-    // let currentPlayer = players[turn]
-    // console.log(currentPlayer)
-    // console.log(players)
-    // console.log(currentPlayer)
-    
-    
-    
-    // nextPlayer()
-    // console.log(activePlayer)
-    // console.log(activePlayer)
-
-    // console.log(activePlayer)
-
-    // console.log(turn)
-    // console.log(currentPlayer)
-
-
-
-    
-    
-    // if clicked on hold => turn++
-    // clicked again = if turn === players.length , turn = 0;
-    // players[turn]
     
 
     // --------------------------------------------------------------
-
-//-----------------------------------------------------------------------------------------------
-
-hold.addEventListener('click' , function() {
-    nextPlayer()
-    playerTotalPlus()
-    console.log(activePlayer)
+   
+    //-----------------------------------------------------------------------------------------------
     
-    // if(currentScoreOf1.innerText === '0'){
-        //     hold.disabled = true;
-        // } 
-        // if(parseInt(playerOneTotal.innerText) >= input.value ){
-            //     winner1.innerText = 'Congratz You Won!'
-        //     roll.disabled = true;
-        // }
+    hold.addEventListener('click' , function() {
+        playerTotalPlus()
+        nextPlayer()
+        console.log(activePlayer)
         
         if(playerScore.innerText === '0'){
-            hold.disabled = true;
+        hold.disabled = true;
         } 
+                
+    })
+    
+    
 
-        // make sure i can remove it 
-        // if(parseInt(playerTotal.innerText) >= input.value ){
-        //     playerWinner.innerText = 'We Have a Winner!'
-        //     roll.disabled = true;
-        // }
-})
+    // -------------------------------------------------------------------
 
-
-// -------------------------------------------------------------------
-//testing
-
-// console.log(activePlayer)
-
-// hold.addEventListener('click' , function(){
-//     nextPlayer()
-// } 
-
-// -------------------------------------------------------------------
-
-
-
-
+        
+        
 roll.addEventListener('click' , function(){
     randomizeNumbers() 
     hold.disabled = false;
 
-    // console.log(activePlayer)
-
-    // if(parseInt(playerOneTotal.innerText) >= input.value ||
-    //     parseInt(currentScoreOf1.innerText) >= input.value){ 
-    //     roll.disabled = true
-        // winner1.innerText = 'Congratz You Won!'
-    // } 
-
-    // if(parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText) >= input.value ){
-    //     playerOneTotal.innerText = parseInt(playerOneTotal.innerText) + parseInt(currentScoreOf1.innerText)
-    //     winner1.innerText = 'Congratz You Won!'
-    //     roll.disabled = true;
-    //     hold.disabled = true;
-    // }
-    
-
-    if(parseInt(playerTotal.innerText) >= input.value ||
-    parseInt(playerScore.innerText) >= input.value){ 
-    roll.disabled = true
-    playerWinner.innerText = `We Have a Winner!`
-    } 
-
     if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
-        playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
+    playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
         playerWinner.innerText = 'We Have a Winner!'
         roll.disabled = true;
         hold.disabled = true;
     }
-    
-
-    
-
-   
+ 
 })
 
 
@@ -231,36 +156,34 @@ roll.addEventListener('click' , function(){
 const randomizeNumbers = ()=>{
     let rand1 = Math.ceil(Math.random()*6)
     let rand2 = Math.ceil(Math.random()*6)
-
-
-
-        // First Dice   
-if(rand1 === 1){
-    if(!firstDice.classList.contains('diceOne')){
-    let remove = firstDice.classList.item(1)
-    firstDice.classList.remove(remove)
-    firstDice.classList.add('diceOne')
+    
+    // First Dice   
+    if(rand1 === 1){
+        if(!firstDice.classList.contains('diceOne')){
+            let remove = firstDice.classList.item(1)
+            firstDice.classList.remove(remove)
+            firstDice.classList.add('diceOne')
+        }
+        currentPlus(1)
     }
-    currentPlus(1)
+    
+    else if(rand1 === 2){
+        if(!firstDice.classList.contains('diceTwo')){
+            let remove = firstDice.classList.item(1)
+            firstDice.classList.remove(remove)
+            firstDice.classList.add('diceTwo')
+        }
+        currentPlus(2)         
     }
-        
-else if(rand1 === 2){
-    if(!firstDice.classList.contains('diceTwo')){
-    let remove = firstDice.classList.item(1)
-    firstDice.classList.remove(remove)
-    firstDice.classList.add('diceTwo')
-    }
-    currentPlus(2)         
-    }
-        
-else if(rand1 === 3){
+    
+    else if(rand1 === 3){
     if(!firstDice.classList.contains('diceThree')){
-    let remove = firstDice.classList.item(1)
+        let remove = firstDice.classList.item(1)
     firstDice.classList.remove(remove)
     firstDice.classList.add('diceThree')
     }
     currentPlus(3)        
-    }
+}
 
 else if(rand1 === 4){
     if(!firstDice.classList.contains('diceFour')){
@@ -270,25 +193,25 @@ else if(rand1 === 4){
     }
     currentPlus(4)       
     }
-
-else if(rand1 === 5){
-    if(!firstDice.classList.contains('diceFive')){
-    let remove = firstDice.classList.item(1)
-    firstDice.classList.remove(remove)
-    firstDice.classList.add('diceFive')
-    }
-    currentPlus(5)         
-    }
-            
-else if(rand1 === 6){
-    if(!firstDice.classList.contains('diceSix')){
-    let remove = firstDice.classList.item(1)
-    firstDice.classList.remove(remove)
-    firstDice.classList.add('diceSix')
-    }
-    currentPlus(6)
+    
+    else if(rand1 === 5){
+        if(!firstDice.classList.contains('diceFive')){
+            let remove = firstDice.classList.item(1)
+            firstDice.classList.remove(remove)
+            firstDice.classList.add('diceFive')
+        }
+        currentPlus(5)         
     }
     
+    else if(rand1 === 6){
+        if(!firstDice.classList.contains('diceSix')){
+            let remove = firstDice.classList.item(1)
+            firstDice.classList.remove(remove)
+            firstDice.classList.add('diceSix')
+            }
+            currentPlus(6)
+            }
+
      
         // Second Dice   
 if(rand2 === 1){
@@ -357,15 +280,22 @@ else if(rand2 === 6){
 
 
 // --------------------------------------------------------
- 
-// let playerTotal = document.querySelector(`.total${activePlayer}`) 
-// let playerWinner = document.querySelector(`.winner${activePlayer}`) 
-// let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 
 
-        
-    // GAME RESET
+
+// GAME RESET
 resetBtn.addEventListener('click', function() {
     window.location.reload()
 })
+
+// Turn checker
+let checkTurn = document.querySelector(`.check${activePlayer}`)
+checkTurn.style.display = 'block'
+
+
+let playerTotal = document.querySelector(`.total${activePlayer}`) 
+let playerWinner = document.querySelector(`.winner${activePlayer}`) 
+let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+
+
