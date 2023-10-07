@@ -53,8 +53,10 @@ let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`)
 // Turn checker
 let playerOneTurn = document.querySelector(`#check1`)
 let playerTwoTurn = document.querySelector(`#check2`)
-
 playerOneTurn.classList.toggle('check1')
+
+let left = document.querySelector(`.left`)
+let right = document.querySelector(`.right`)
 
 
 
@@ -92,12 +94,15 @@ function playerTotalPlus(){
        playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
        
     }
-    
+
     let turnCheck  = () => {
     
         if(activePlayer = 1){
             playerOneTurn.classList.toggle('check1')
+            left.classList.toggle('opacity')
             playerTwoTurn.classList.toggle('check2')
+            right.classList.toggle('opacity')
+
         }
        
     }    
@@ -108,11 +113,7 @@ function playerTotalPlus(){
         
         roll.disabled = false;
         start.disabled = true;
-        input.disabled = true;
-    
-        
-        
-        
+        input.disabled = true; 
     })
 
 
@@ -122,8 +123,7 @@ function playerTotalPlus(){
         turnCheck()      
         if(playerScore.innerText === '0'){
         hold.disabled = true;
-        } 
-                
+        }         
     })
     
         

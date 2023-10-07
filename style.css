@@ -24,7 +24,6 @@ body{
 }
 
 .main{
-    background-color: seagreen;
     height: 90%;
     display: grid;
     grid-template-columns: 1fr 400px 1fr;
@@ -36,7 +35,10 @@ body{
 .left{
     grid-column: 1;
     background-color: darkolivegreen;
-    
+}
+
+.opacity{
+    opacity: 0.4;
 }
 
 .player1,
@@ -115,6 +117,7 @@ body{
 
 .mid{
     grid-column: 2;
+    background-color: teal;
 }
 
 .mid p{
@@ -174,6 +177,7 @@ body{
 .right{
     grid-column: 3;
     background-color: darkkhaki;
+    
 }
 
 .check2{
