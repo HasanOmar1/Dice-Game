@@ -62,6 +62,7 @@ let startSound = new Audio('/assets/start.mp4')
 let winnerSound = new Audio('/assets/winner.m4a')
 let resetSound = new Audio('./assets/reset.m4a')
 let diceSound = new Audio('./assets/dice.m4a')
+let nextSound = new Audio('./assets/next.m4a')
 backgroundMusic.play()
 
 // Sound Settings
@@ -69,6 +70,7 @@ startSound.volume = 0.2
 resetSound.volume = 0.2
 winnerSound.volume = 0.1
 diceSound.volume = 0.1
+nextSound.volume = 0.1
 backgroundMusic.volume = 0.008
 
 // settings
@@ -139,7 +141,8 @@ function playerTotalPlus(){
     hold.addEventListener('click' , () => {
         playerTotalPlus()
         nextPlayer()  
-        turnCheck()      
+        turnCheck()  
+        nextSound.play()    
         if(playerScore.innerText === '0'){
         hold.disabled = true;
         }         
