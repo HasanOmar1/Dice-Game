@@ -149,7 +149,9 @@ body{
 }
 
 
-.roll , .hold , .reset{
+.roll ,
+.hold ,
+.reset{
     margin-left: 30%;
     margin-top: 13px;
     padding: 10px 50px;
@@ -247,13 +249,216 @@ body{
     margin-bottom: 50px;
 }
 
-
-/* ------------------------------------------------------------------- */
-
 .hiddenDice{
     display: none;
 }
 
+/* ------------------------------------------------------------------- */
+
+/* PHONE */
+
+@media (max-width:500px){
+
+body{
+    margin: 0;
+    width: 100%;
+}
+      
+
+.bar{
+font-size: 10px;
+}
+
+.main{
+    grid-template-columns: 33vw 33vw 33vw;
+
+}
+
+.player1,
+.player2{
+    font-size: 20px;
+}
+
+.check1,
+.check2{
+    display: none;
+}
+
+.total1,
+.total2{
+    font-size: 20px;
+}
+.winner1,
+.winner2{
+    font-size: 12px;
+    margin-left: 30px;
+    width: 10ch;
+}
+
+
+.score1Box,
+.score2Box{
+    margin-left: 15%;
+    padding: 10px 40px;
+    margin-top: 200%;
+}
+.currentScore1,
+.currentScore2{
+    font-size: 15px;
+}
+
+.currentScoreOf1,
+.currentScoreOf2{
+    font-size: 20px;
+}
 
 
 
+/* MIDDLE */
+
+
+.mid p {
+    font-size: 13px;
+    font-weight: bold;
+    
+}
+
+.target{
+    width: 60px;
+    margin-bottom: 10px;
+
+}
+.start{
+    margin-left: 30%;
+    padding: 5px 10px;
+    width: 60px;
+}
+
+.firstDice,
+.secondDice{
+    width: 50px;
+    height: 50px;
+    margin-left: 30%
+}
+
+.roll,
+.hold ,
+.reset{
+    margin-left: 30%;
+    padding: 5px 10px;
+    width: 60px;
+}
+
+.roll ,
+.hold{
+    margin-bottom: 10px
+}
+}
+
+/* IPAD */
+
+@media (max-width: 769px){
+
+    body{
+        margin: 0;
+        width: 100%;
+    }
+
+    
+    .bar{
+    font-size: 30px;
+    }
+    
+    .main{
+        grid-template-columns: 33vw 33vw 34vw;
+        height: 102.7%;
+    
+    }
+    
+    .player1,
+    .player2{
+        font-size: 40px;
+    }
+    
+    .check1,
+    .check2{
+        display: none;
+    }
+    
+    .total1,
+    .total2{
+        font-size: 50px;
+    }
+    .winner1,
+    .winner2{
+        font-size: 20px;
+
+    }
+    
+    .score1Box,
+    .score2Box{
+        margin-left: 25%;
+        padding: 15px 70px;
+        margin-top: 150%;
+    }
+
+    .currentScore1,
+    .currentScore2{
+        font-size: 30px;
+    }
+    
+    .currentScoreOf1,
+    .currentScoreOf2{
+        font-size: 30px;
+    }
+    
+    
+    
+    /* MIDDLE */
+    
+    
+    .mid p {
+        font-size: 25px;
+        font-weight: 600;
+    }
+    
+    .target{
+        width: 100px;
+        margin-bottom: 10px;
+        height: 50px;
+        font-size: 20px;
+    
+    }
+
+    
+    .firstDice,
+    .secondDice{
+        width: 100px;
+        height: 100px;
+        margin-left: 33%
+    }
+    
+    .start,
+    .roll,
+    .hold ,
+    .reset{
+        margin-left: 20%;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 19px;
+        font-weight: 600;
+    }
+    .hold{
+        padding: 10px 40px;
+    }
+
+    
+    .roll ,
+    .hold{
+        margin-bottom: 40px
+    }
+
+
+}
