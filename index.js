@@ -60,7 +60,7 @@ let right = document.querySelector(`.right`)
 let backgroundMusic = new Audio('./assets/background.mp4')
 let startSound = new Audio('/assets/start.mp4')
 let winnerSound = new Audio('/assets/winner.m4a')
-let resetSound = new Audio('./assets/sound effect COMMANDS   RESET (mp3cut.net).m4a')
+let resetSound = new Audio('./assets/reset.m4a')
 backgroundMusic.play()
 
 // Sound Settings
