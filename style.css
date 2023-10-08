@@ -182,17 +182,6 @@ body{
     
 }
 
-.check2{
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: springgreen;
-    bottom: 15px;
-    left: 78%;
-    display: block;
-    
-}
-
 /* DICES */
 
 .diceOne{
@@ -282,11 +271,6 @@ body{
     .player1,
     .player2{
         font-size: 40px;
-    }
-    
-    .check1,
-    .check2{
-        display: none;
     }
     
     .total1,
@@ -388,11 +372,6 @@ body{
     .player1,
     .player2{
         font-size: 20px;
-    }
-    
-    .check1,
-    .check2{
-        display: none;
     }
     
     .total1,

@@ -50,10 +50,7 @@ let playerTotal = document.querySelector(`.total${activePlayer}`)
 let playerWinner = document.querySelector(`.winner${activePlayer}`) 
 let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
-// Turn checker
-let playerOneTurn = document.querySelector(`#check1`)
-let playerTwoTurn = document.querySelector(`#check2`)
-playerOneTurn.classList.toggle('check1')
+
 
 let left = document.querySelector(`.left`)
 let right = document.querySelector(`.right`)
@@ -98,9 +95,7 @@ function playerTotalPlus(){
     let turnCheck  = () => {
     
         if(activePlayer = 1){
-            playerOneTurn.classList.toggle('check1')
             left.classList.toggle('opacity')
-            playerTwoTurn.classList.toggle('check2')
             right.classList.toggle('opacity')
 
         }
@@ -275,20 +270,8 @@ else if(rand2 === 6){
 // --------------------------------------------------------
 
 
-
-
 // GAME RESET
 resetBtn.addEventListener('click', function() {
     window.location.reload()
 })
-
-// // Turn checker
-// let checkTurn = document.querySelector(`.check${activePlayer}`)
-// checkTurn.style.display = 'block'
-
-
-// let playerTotal = document.querySelector(`.total${activePlayer}`) 
-// let playerWinner = document.querySelector(`.winner${activePlayer}`) 
-// let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
-
 
