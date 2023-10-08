@@ -61,13 +61,15 @@ let backgroundMusic = new Audio('./assets/background.mp4')
 let startSound = new Audio('/assets/start.mp4')
 let winnerSound = new Audio('/assets/winner.m4a')
 let resetSound = new Audio('./assets/reset.m4a')
+let diceSound = new Audio('./assets/dice.m4a')
 backgroundMusic.play()
 
 // Sound Settings
 startSound.volume = 0.2
 resetSound.volume = 0.2
-winnerSound.volume = 0.2
-backgroundMusic.volume = 0.02
+winnerSound.volume = 0.1
+diceSound.volume = 0.1
+backgroundMusic.volume = 0.008
 
 // settings
 start.disabled = false;
@@ -147,6 +149,7 @@ function playerTotalPlus(){
             
     roll.addEventListener('click' , function(){
         randomizeNumbers() 
+        diceSound.play()
         hold.disabled = false;
 
         if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
@@ -302,6 +305,6 @@ else if(rand2 === 6){
 
 // GAME RESET
 resetBtn.addEventListener('click', function() {
-    window.location.reload()
+    window.location = window.location
 })
 
