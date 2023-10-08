@@ -31,6 +31,22 @@ body{
 
 }
 
+.music{
+    padding: 5px 13px;
+    margin-right: 10px;
+    background-color: darkgreen;
+    color: white;
+    border: 2px solid gold;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 1.4;
+
+}
+.music:hover{
+    opacity: 0.8;
+}
+
+/* ----------------------------------------- */
 /* Left Side */
 .left{
     grid-column: 1;
@@ -148,6 +164,11 @@ body{
     background-color: greenyellow;
 }
 
+.reset:hover{
+    opacity: 0.8;
+    color: white;
+    background-color: darkred;
+}
 
 .roll ,
 .hold ,
