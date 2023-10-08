@@ -57,13 +57,15 @@ let left = document.querySelector(`.left`)
 let right = document.querySelector(`.right`)
 
 // Sound
-// let backgroundMusic = new Audio('./assets/chill-music.mp4')
+let backgroundMusic = new Audio('./assets/background.mp4')
+let startSound = new Audio('/assets/start.mp4')
 let resetSound = new Audio('./assets/sound effect COMMANDS   RESET (mp3cut.net).m4a')
-// backgroundMusic.play()
+backgroundMusic.play()
 
 // Sound Settings
+startSound.volume = 0.2
 resetSound.volume = 0.2
-// backgroundMusic.volume = 0.02
+backgroundMusic.volume = 0.02
 
 // settings
 start.disabled = false;
@@ -111,10 +113,10 @@ function playerTotalPlus(){
     }    
 
 
-    // function togglePlayPause(){
-    //     backgroundMusic.paused ? backgroundMusic.play() :
-    //     backgroundMusic.pause();
-    // }
+    function togglePlayPause(){
+        backgroundMusic.paused ? backgroundMusic.play() :
+        backgroundMusic.pause();
+    }
     
     //-----------------------------------------------------------------------------------------------
     
@@ -123,7 +125,8 @@ function playerTotalPlus(){
         
         roll.disabled = false;
         start.disabled = true;
-        input.disabled = true; 
+        input.disabled = true;
+        startSound.play() 
         
         
     })
@@ -155,7 +158,7 @@ function playerTotalPlus(){
     })
 
     music.addEventListener('click', function() {
-        // togglePlayPause()
+        togglePlayPause()
         
     })
 
