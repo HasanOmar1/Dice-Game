@@ -5,6 +5,7 @@ let resetBtn = document.querySelector('.reset')
 let start = document.querySelector('.start')
 let roll = document.querySelector('.roll')
 let hold = document.querySelector('.hold')
+let music = document.querySelector('.music')
 
 // Input
 let input = document.querySelector('.target')
@@ -55,7 +56,14 @@ let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`)
 let left = document.querySelector(`.left`)
 let right = document.querySelector(`.right`)
 
+// Sound
+// let backgroundMusic = new Audio('./assets/chill-music.mp4')
+let resetSound = new Audio('./assets/sound effect COMMANDS   RESET (mp3cut.net).m4a')
+// backgroundMusic.play()
 
+// Sound Settings
+resetSound.volume = 0.2
+// backgroundMusic.volume = 0.02
 
 // settings
 start.disabled = false;
@@ -101,14 +109,23 @@ function playerTotalPlus(){
         }
        
     }    
+
+
+    // function togglePlayPause(){
+    //     backgroundMusic.paused ? backgroundMusic.play() :
+    //     backgroundMusic.pause();
+    // }
     
     //-----------------------------------------------------------------------------------------------
     
+    // Event Listeners
     start.addEventListener('click' , function() {
         
         roll.disabled = false;
         start.disabled = true;
         input.disabled = true; 
+        
+        
     })
 
 
@@ -137,7 +154,14 @@ function playerTotalPlus(){
     
     })
 
+    music.addEventListener('click', function() {
+        // togglePlayPause()
+        
+    })
 
+
+
+// --------------------------------------------------------------------------------
 
 
 //  random dice numbers function
@@ -260,8 +284,8 @@ else if(rand2 === 6){
     if(rand1 === 6 && rand2 === 6){
     playerTotal.innerText = 0
     playerScore.innerText = 0  
-    // nextPlayer()
-    // console.log(activePlayer)        
+    resetSound.play()
+   
     }
 
     }
