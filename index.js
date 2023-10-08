@@ -59,12 +59,14 @@ let right = document.querySelector(`.right`)
 // Sound
 let backgroundMusic = new Audio('./assets/background.mp4')
 let startSound = new Audio('/assets/start.mp4')
+let winnerSound = new Audio('/assets/winner.m4a')
 let resetSound = new Audio('./assets/sound effect COMMANDS   RESET (mp3cut.net).m4a')
 backgroundMusic.play()
 
 // Sound Settings
 startSound.volume = 0.2
 resetSound.volume = 0.2
+winnerSound.volume = 0.2
 backgroundMusic.volume = 0.02
 
 // settings
@@ -72,7 +74,6 @@ start.disabled = false;
 hold.disabled = true;
 roll.disabled = true;
 input.value = 100;
-
 
 
 // functions ---------------------------------------------------------------
@@ -127,6 +128,7 @@ function playerTotalPlus(){
         start.disabled = true;
         input.disabled = true;
         startSound.play() 
+
         
         
     })
@@ -152,6 +154,7 @@ function playerTotalPlus(){
             playerWinner.innerText = 'We Have a Winner!'
             roll.disabled = true;
             hold.disabled = true;
+            winnerSound.play()
             
         }
     
