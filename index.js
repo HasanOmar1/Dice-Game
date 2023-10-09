@@ -83,15 +83,15 @@ input.value = 100;
 
 // functions ---------------------------------------------------------------
 
-function currentPlus(n){
-    playerScore.innerText =  parseInt(playerScore.innerText ) + n;
-}
+    function currentPlus(n){
+        playerScore.innerText =  parseInt(playerScore.innerText ) + n;
+    }
 
 
-function playerTotalPlus(){
-    playerTotal.innerText =  parseInt(playerTotal.innerText) + parseInt(playerScore.innerText );
-    playerScore.innerText = 0
-}
+    function playerTotalPlus(){
+        playerTotal.innerText =  parseInt(playerTotal.innerText) + parseInt(playerScore.innerText );
+        playerScore.innerText = 0
+    }
 
 
 
@@ -300,8 +300,6 @@ else if(rand2 === 6){
     resetSound.play()
     nextPlayer()
     turnCheck()
-    
-   
     }
 
     }
