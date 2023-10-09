@@ -298,6 +298,9 @@ else if(rand2 === 6){
     playerTotal.innerText = 0
     playerScore.innerText = 0  
     resetSound.play()
+    nextPlayer()
+    turnCheck()
+    
    
     }
 
