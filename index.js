@@ -52,7 +52,7 @@ let playerWinner = document.querySelector(`.winner${activePlayer}`)
 let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 
-
+// Sides
 let left = document.querySelector(`.left`)
 let right = document.querySelector(`.right`)
 
@@ -78,6 +78,7 @@ start.disabled = false;
 hold.disabled = true;
 roll.disabled = true;
 input.value = 100;
+
 
 
 // functions ---------------------------------------------------------------
