@@ -23,3 +23,7 @@ The first player to reach 100 points wins.[You can change the goal]
 ---
 
 If you want to reset the game , click on the reset game button.
+
+## Game's Link :
+
+https://1v1-dice-game.netlify.app/
