@@ -9,6 +9,14 @@
   </head>
   <body>
     <div class="bar">
+      <div class="playerOneContainer">
+        <p class="playerOne">Player1</p>
+        <p class="playerScore1">0</p>
+      </div>
+      <div class="playerTwoContainer">
+        <p class="playerTwo">Player2</p>
+        <p class="playerScore2">0</p>
+      </div>
       <p class="bar">Dice Game</p>
       <button class="music">Background Music Pause/Resume</button>
     </div>
@@ -32,11 +40,19 @@
         <p>Select target score</p>
         <input type="number" class="target" /><br />
         <button class="start">START GAME</button>
+        <div>
+          <img
+            class="pop-up gif hidden"
+            src="./assets/giphy.gif"
+            alt="bad luck giphy"
+          />
+        </div>
 
         <p class="firstDice diceOne"></p>
         <p class="secondDice diceTwo"></p>
 
         <button class="roll">🎲 ROLL DICE</button>
+
         <button class="hold">🛑 HOLD</button>
 
         <button class="reset">RESET GAME</button>

@@ -52,6 +52,13 @@ let playerWinner = document.querySelector(`.winner${activePlayer}`)
 let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
 
 
+
+// Local Storage Score
+let scoreOne = document.querySelector('.playerScore1')
+let scoreTwo = document.querySelector('.playerScore2')
+
+
+
 // Sides
 let left = document.querySelector(`.left`)
 let right = document.querySelector(`.right`)
@@ -79,6 +86,9 @@ hold.disabled = true;
 roll.disabled = true;
 input.value = 100;
 
+//pop-up
+let gif = document.querySelector('.pop-up')
+
 
 
 // functions ---------------------------------------------------------------
@@ -94,7 +104,6 @@ input.value = 100;
     }
 
 
-
    let nextPlayer =  () => {
        
        turn++
@@ -105,6 +114,7 @@ input.value = 100;
        playerTotal = document.querySelector(`.total${activePlayer}`) 
        playerWinner = document.querySelector(`.winner${activePlayer}`) 
        playerScore = document.querySelector(`.currentScoreOf${activePlayer}`) 
+       
        
     }
 
@@ -118,10 +128,62 @@ input.value = 100;
        
     }    
 
+    function announcement(){
+
+        if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
+            playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
+            playerWinner.innerText = 'We Have a Winner!'
+            roll.disabled = true;
+            hold.disabled = true;
+            winnerSound.play()
+
+        }
+    }
+
+    function winner(){
+        
+        announcement()
+            
+            
+            localStorage.setItem('scoreOfPlayerOne', 0);
+            localStorage.setItem('scoreOfPlayerTwo', 0);
+            
+            let scoreOfOne = +localStorage.getItem('scoreOfPlayerOne')
+            let scoreOfTwo = +localStorage.getItem('scoreOfPlayerTwo')
+
+
+            if(winner1.innerText === 'We Have a Winner!' ){
+            scoreOfOne++
+            localStorage.setItem('scoreOfPlayerOne', scoreOfOne);
+            scoreOne.innerText = scoreOfOne                  
+            }
+
+
+            else if(winner2.innerText === 'We Have a Winner!' ){
+            scoreOfTwo++
+            localStorage.setItem('scoreOfPlayerTwo', scoreOfTwo);
+            scoreTwo.innerText = scoreOfTwo
+            }
+                
+            }
+        
+
+        scoreOne.innerText = +localStorage.getItem('scoreOfPlayerOne')
+        scoreTwo.innerText = +localStorage.getItem('scoreOfPlayerTwo');
+       
 
     function togglePlayPause(){
         backgroundMusic.paused ? backgroundMusic.play() :
         backgroundMusic.pause();
+    }
+
+    function giphy(){
+        gif.classList.remove(`hidden`)
+        roll.disabled = true;
+        setTimeout(function(){
+            gif.classList.add(`hidden`)
+            roll.disabled = false;
+        }, 1500)
     }
     
     //-----------------------------------------------------------------------------------------------
@@ -149,21 +211,14 @@ input.value = 100;
         }         
     })
     
-        
-            
+    
     roll.addEventListener('click' , function(){
         randomizeNumbers() 
         diceSound.play()
         hold.disabled = false;
-
-        if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
-        playerTotal.innerText = parseInt(playerTotal.innerText) + parseInt(playerScore.innerText)
-            playerWinner.innerText = 'We Have a Winner!'
-            roll.disabled = true;
-            hold.disabled = true;
-            winnerSound.play()
-            
-        }
+        winner()
+       
+      
     
     })
 
@@ -300,16 +355,20 @@ else if(rand2 === 6){
     resetSound.play()
     nextPlayer()
     turnCheck()
-    }
+    giphy()
 
     }
 
+    }
+
+    
 
 // --------------------------------------------------------
 
 
 // GAME RESET
 resetBtn.addEventListener('click', function() {
+    localStorage.clear()
     window.location = window.location
 })
 

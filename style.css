@@ -129,6 +129,33 @@ body{
     
 }
 
+.playerOneContainer{
+    position: relative;
+    font-size: 20px;
+    padding-left: 15px;
+    line-height: 1.7;
+    color: rgb(2, 37, 190);
+}
+
+.playerScore1{
+    position: absolute;
+    left: 40px;
+}
+
+.playerTwoContainer{
+    position: relative;
+    font-size: 20px;
+    padding-left: 15px;
+    line-height: 1.7;
+    color: rgb(15, 204, 230);
+}
+.playerScore2{
+    position: absolute;
+    left: 40px;
+}
+
+
+
 /* MIDDLE */
 
 .mid{
@@ -194,7 +221,14 @@ body{
     color: white;
 }
 
-
+.gif{
+    width: 300px;
+    height: 150px;
+    margin-left: 50px;
+}
+.hidden{
+    display: none;
+}
 /* right Side */
 
 .right{
@@ -262,6 +296,8 @@ body{
 .hiddenDice{
     display: none;
 }
+
+
 
 /* ------------------------------------------------------------------- */
 
@@ -369,6 +405,10 @@ body{
         margin-bottom: 40px
     }
 
+    .gif{
+        width: 200px;
+        margin-left: 20px;
+    }
 
 }
 
@@ -423,7 +463,14 @@ body{
         font-size: 20px;
     }
     
-    
+    .playerOneContainer{
+        font-size: 15px;
+    }
+ 
+    .playerTwoContainer{
+        font-size: 15px;
+    }
+   
     
     /* MIDDLE */
     
@@ -463,5 +510,11 @@ body{
     .hold{
         margin-bottom: 30px
     }
+
+    .gif{
+        width: 130px;
+        margin-left: 0;
     }
+    }
+
 
