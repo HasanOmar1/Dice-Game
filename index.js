@@ -140,36 +140,38 @@ let gif = document.querySelector('.pop-up')
         }
     }
 
+    function incrementScore(){
+        localStorage.setItem('scoreOfPlayerOne', 0);
+        localStorage.setItem('scoreOfPlayerTwo', 0);
+        
+        let scoreOfOne = +localStorage.getItem('scoreOfPlayerOne')
+        let scoreOfTwo = +localStorage.getItem('scoreOfPlayerTwo')
+
+
+        if(winner1.innerText === 'We Have a Winner!' ){
+        localStorage.setItem('scoreOfPlayerOne', ++scoreOfOne);
+        scoreOne.innerText = scoreOfOne                  
+        }
+
+
+        else if(winner2.innerText === 'We Have a Winner!' ){
+        localStorage.setItem('scoreOfPlayerTwo', ++scoreOfTwo);
+        scoreTwo.innerText = scoreOfTwo
+        }
+    }
+    
+
     function winner(){
         
         announcement()
+        incrementScore()
             
-            
-            localStorage.setItem('scoreOfPlayerOne', 0);
-            localStorage.setItem('scoreOfPlayerTwo', 0);
-            
-            let scoreOfOne = +localStorage.getItem('scoreOfPlayerOne')
-            let scoreOfTwo = +localStorage.getItem('scoreOfPlayerTwo')
 
-
-            if(winner1.innerText === 'We Have a Winner!' ){
-            scoreOfOne++
-            localStorage.setItem('scoreOfPlayerOne', scoreOfOne);
-            scoreOne.innerText = scoreOfOne                  
-            }
-
-
-            else if(winner2.innerText === 'We Have a Winner!' ){
-            scoreOfTwo++
-            localStorage.setItem('scoreOfPlayerTwo', scoreOfTwo);
-            scoreTwo.innerText = scoreOfTwo
-            }
-                
-            }
+    }
         
-
-        scoreOne.innerText = +localStorage.getItem('scoreOfPlayerOne')
-        scoreTwo.innerText = +localStorage.getItem('scoreOfPlayerTwo');
+            
+    scoreOne.innerText = +localStorage.getItem('scoreOfPlayerOne')
+    scoreTwo.innerText = +localStorage.getItem('scoreOfPlayerTwo');
        
 
     function togglePlayPause(){
