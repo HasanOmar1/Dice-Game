@@ -133,6 +133,13 @@ let gif = document.querySelector('.pop-up')
        
     }    
 
+    function newPage(){
+        setTimeout(function(){
+            window.location.href = "play-again.html";
+    
+        }, 1200)
+        }
+        
     function announcement(){
 
         if(parseInt(playerTotal.innerText) + parseInt(playerScore.innerText) >= input.value ){
@@ -142,10 +149,16 @@ let gif = document.querySelector('.pop-up')
             hold.disabled = true;
             winnerSound.play()
 
+            newPage()
+
         }
+
     }
 
+
     function incrementScore(){
+
+
 
         if(winner1.innerText === 'We Have a Winner!' ){
             localStorage.setItem('scoreOfPlayerOneClone', ++scoreOfOne);
@@ -161,6 +174,9 @@ let gif = document.querySelector('.pop-up')
             }
     }
 
+
+    
+
     function winner(){
         
         announcement()
@@ -168,9 +184,7 @@ let gif = document.querySelector('.pop-up')
             
 
     }
-
-    // ----------------------------------------------------
-    //For incrementScore function to work.
+        
     scoreOfOneClone = +localStorage.getItem('scoreOfPlayerOneClone')
     scoreOfOne = scoreOfOneClone
     scoreOne.innerText = scoreOfOne
@@ -178,8 +192,8 @@ let gif = document.querySelector('.pop-up')
     scoreOfTwoClone = +localStorage.getItem('scoreOfPlayerTwoClone')
     scoreOfTwo = scoreOfTwoClone
     scoreTwo.innerText = scoreOfTwo
-    // ----------------------------------------------------
 
+       
 
     function togglePlayPause(){
         backgroundMusic.paused ? backgroundMusic.play() :

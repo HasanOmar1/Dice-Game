@@ -191,6 +191,11 @@ body{
     background-color: greenyellow;
 }
 
+.start:hover{
+    background-color: #82c018;
+
+}
+
 .reset:hover{
     opacity: 0.8;
     color: white;
