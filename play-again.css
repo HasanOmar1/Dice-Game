@@ -11,6 +11,7 @@
     margin: 100px;
     padding: 160px 700px;
     background-color: #556b2f;
+    
   }
   .cont {
     display: flex;
@@ -51,3 +52,53 @@
     color: white;
     background-color: darkred;
   }
+
+
+
+  /* IPAD */
+
+@media (max-width: 769px){
+
+
+.big-cont{
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  margin-top: 30%;
+  margin-left: 30px; 
+
+}
+
+.cont{
+  padding: 100px;
+  margin-left: 1px;
+}
+.size{
+  padding: 10px 30px;
+  /* font-size: 16px; */
+}
+
+.or{
+  margin-top: 20px;
+}
+}
+
+    
+  /* phone */
+
+@media (max-width:  500px) {   
+
+  .big-cont{
+    width: 300px;
+    margin: 60% 0;
+  }
+
+  .cont{
+    padding-left: 70px;
+  }
+  .size{
+    padding: 15px 30px;
+    font-size: 20px;
+  }
+
+}
