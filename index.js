@@ -57,6 +57,11 @@ let playerScore = document.querySelector(`.currentScoreOf${activePlayer}`)
 let scoreOne = document.querySelector('.playerScore1')
 let scoreTwo = document.querySelector('.playerScore2')
 
+localStorage.setItem('scoreOfPlayerOne', 0);
+localStorage.setItem('scoreOfPlayerTwo', 0);
+
+let scoreOfOne = +localStorage.getItem('scoreOfPlayerOne')
+let scoreOfTwo = +localStorage.getItem('scoreOfPlayerTwo')
 
 
 // Sides
@@ -141,25 +146,20 @@ let gif = document.querySelector('.pop-up')
     }
 
     function incrementScore(){
-        localStorage.setItem('scoreOfPlayerOne', 0);
-        localStorage.setItem('scoreOfPlayerTwo', 0);
-        
-        let scoreOfOne = +localStorage.getItem('scoreOfPlayerOne')
-        let scoreOfTwo = +localStorage.getItem('scoreOfPlayerTwo')
-
 
         if(winner1.innerText === 'We Have a Winner!' ){
-        localStorage.setItem('scoreOfPlayerOne', ++scoreOfOne);
-        scoreOne.innerText = scoreOfOne                  
-        }
-
-
-        else if(winner2.innerText === 'We Have a Winner!' ){
-        localStorage.setItem('scoreOfPlayerTwo', ++scoreOfTwo);
-        scoreTwo.innerText = scoreOfTwo
-        }
+            localStorage.setItem('scoreOfPlayerOneClone', ++scoreOfOne);
+            let scoreOfOneClone = +localStorage.getItem('scoreOfPlayerOneClone')
+            scoreOne.innerText = scoreOfOneClone                  
+            }
+        
+        
+            else if(winner2.innerText === 'We Have a Winner!' ){
+            localStorage.setItem('scoreOfPlayerTwoClone', ++scoreOfTwo);
+            let scoreOfTwoClone = +localStorage.getItem('scoreOfPlayerTwoClone')
+            scoreTwo.innerText = scoreOfTwoClone
+            }
     }
-    
 
     function winner(){
         
@@ -168,11 +168,18 @@ let gif = document.querySelector('.pop-up')
             
 
     }
-        
+
+    // ----------------------------------------------------
+    //For incrementScore function to work.
+    scoreOfOneClone = +localStorage.getItem('scoreOfPlayerOneClone')
+    scoreOfOne = scoreOfOneClone
+    scoreOne.innerText = scoreOfOne
             
-    scoreOne.innerText = +localStorage.getItem('scoreOfPlayerOne')
-    scoreTwo.innerText = +localStorage.getItem('scoreOfPlayerTwo');
-       
+    scoreOfTwoClone = +localStorage.getItem('scoreOfPlayerTwoClone')
+    scoreOfTwo = scoreOfTwoClone
+    scoreTwo.innerText = scoreOfTwo
+    // ----------------------------------------------------
+
 
     function togglePlayPause(){
         backgroundMusic.paused ? backgroundMusic.play() :
