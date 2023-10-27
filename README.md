@@ -22,7 +22,7 @@ The first player to reach 100 points wins.[You can change the goal]
 
 ---
 
-## added features:
+## Added features:
 
 - Added local storage for the score.
 - A gif will appear for one second if the player rolls 6 on both of the dices.
