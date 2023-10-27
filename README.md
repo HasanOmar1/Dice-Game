@@ -22,8 +22,6 @@ The first player to reach 100 points wins.[You can change the goal]
 
 ---
 
-If you want to reset the scores , click on the reset game button.
-
 ## added features:
 
 - Added local storage for the score.
