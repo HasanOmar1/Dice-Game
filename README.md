@@ -24,10 +24,6 @@ The first player to reach 100 points wins.[You can change the goal]
 
 If you want to reset the scores , click on the reset game button.
 
-## Game's Link :
-
-https://1v1-dice-game.netlify.app/
-
 ## added features:
 
 - Added local storage for the score.
@@ -35,3 +31,7 @@ https://1v1-dice-game.netlify.app/
 - Added background music with pause / resume feature.
 - Added sound effects for several events. [rolling dice , winning , holding , etc...].
 - Added play again or reset game feature. [reset game clears the local storage (scores go back to 0)]
+
+### Game's Link :
+
+https://1v1-dice-game.netlify.app/
