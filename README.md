@@ -27,3 +27,11 @@ If you want to reset the scores , click on the reset game button.
 ## Game's Link :
 
 https://1v1-dice-game.netlify.app/
+
+## added features:
+
+- Added local storage for the score.
+- A gif will appear for one second if the player rolls 6 on both of the dices.
+- Added background music with pause / resume feature.
+- Added sound effects for several events. [rolling dice , winning , holding , etc...].
+- Added play again or reset game feature. [reset game clears the local storage (scores go back to 0)]
