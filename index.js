@@ -148,7 +148,7 @@ let gif = document.querySelector('.pop-up')
             roll.disabled = true;
             hold.disabled = true;
             winnerSound.play()
-
+            resetBtn.style.display = "none"    
             newPage()
 
         }
@@ -181,7 +181,6 @@ let gif = document.querySelector('.pop-up')
         
         announcement()
         incrementScore()
-            
 
     }
         
