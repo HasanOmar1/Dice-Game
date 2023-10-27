@@ -30,6 +30,8 @@ The first player to reach 100 points wins.[You can change the goal]
 - Added sound effects for several events. [rolling dice , winning , holding , etc...].
 - Added play again or reset game feature. [reset game clears the local storage (scores go back to 0)]
 
+---
+
 ## Game's Link :
 
 https://1v1-dice-game.netlify.app/
