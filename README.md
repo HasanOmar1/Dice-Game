@@ -32,6 +32,6 @@ If you want to reset the scores , click on the reset game button.
 - Added sound effects for several events. [rolling dice , winning , holding , etc...].
 - Added play again or reset game feature. [reset game clears the local storage (scores go back to 0)]
 
-### Game's Link :
+## Game's Link :
 
 https://1v1-dice-game.netlify.app/
