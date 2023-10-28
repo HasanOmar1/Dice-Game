@@ -38,4 +38,4 @@ https://1v1-dice-game.netlify.app/
 
 ---
 
-[The second page has been added just for practice , I could have added the play again button in the main page]
+[The second page has been added just for practice , I could have added the play again button on the main page]
