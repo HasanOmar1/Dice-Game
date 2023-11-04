@@ -417,9 +417,8 @@ body{
 
 }
 
-    /* PHONE */
 
-    @media (max-width:  500px) {    
+@media (max-width:  500px) {
 
     body{
         margin: 0;
@@ -524,3 +523,84 @@ body{
     }
 
 
+
+
+/* PAGE 2 */
+
+  .cont {
+    display: flex;
+    gap: 2rem;
+    border: 3px solid rgb(166, 147, 38);
+    padding: 100px 20px;
+    width: 600px;
+    margin-left: 300px;
+    background-color: #008080;
+  }
+  
+  .size {
+    padding: 5px 30px;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 30px;
+    border: 0px;
+  }
+  
+  .or {
+    margin-top: 7px;
+    font-size: 30px;
+  }
+  
+  .playAgain {
+    background-color: #adff2f;
+  }
+  
+  .playAgain:hover {
+    color: white;
+    background-color: #82c018;
+  }
+  
+  .resetGame {
+    background-color: #dc143c;
+  }
+  
+  .resetGame:hover {
+    color: white;
+    background-color: darkred;
+  }
+  
+  
+  
+ 
+  /* IPAD */
+
+@media (max-width: 769px){
+
+    .cont{
+    padding: 100px;
+    margin-left: 100px;
+    }
+    .size{
+    padding: 10px 30px;
+    }
+    
+    .or{
+    margin-top: 20px;
+    }
+    }
+    
+      
+    /* phone */
+    
+    @media (max-width:  500px) {   
+
+      
+        .cont{
+          padding-left: 30px;
+          margin : 0;
+          width: 393px;
+        }
+        .size{
+          font-size: 20px;
+        }
+      
+      }

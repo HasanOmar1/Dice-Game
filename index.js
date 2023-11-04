@@ -1,5 +1,8 @@
+// PAGES
+let page1 = document.querySelector('.game')
+let page2 = document.querySelector('.big-cont')
 
-
+// PAGE 1
 // Buttons
 let resetBtn = document.querySelector('.reset')
 let start = document.querySelector('.start')
@@ -91,8 +94,13 @@ hold.disabled = true;
 roll.disabled = true;
 input.value = 100;
 
-//pop-up
+// pop-up
 let gif = document.querySelector('.pop-up')
+
+// PAGE 2
+let playAgainBtn = document.querySelector('.playAgain')
+let resetGameBtn = document.querySelector('.resetGame')
+
 
 
 
@@ -135,7 +143,9 @@ let gif = document.querySelector('.pop-up')
 
     function newPage(){
         setTimeout(function(){
-            window.location.href = "play-again.html";
+            page1.classList.add('hidden')
+            page2.classList.remove('hidden')
+
     
         }, 1200)
         }
@@ -148,7 +158,7 @@ let gif = document.querySelector('.pop-up')
             roll.disabled = true;
             hold.disabled = true;
             winnerSound.play()
-            resetBtn.style.display = "none"    
+            resetBtn.style.display = "none" 
             newPage()
 
         }
@@ -181,18 +191,12 @@ let gif = document.querySelector('.pop-up')
         
         announcement()
         incrementScore()
+            
 
     }
-        
-    scoreOfOneClone = +localStorage.getItem('scoreOfPlayerOneClone')
-    scoreOfOne = scoreOfOneClone
-    scoreOne.innerText = scoreOfOne
-            
-    scoreOfTwoClone = +localStorage.getItem('scoreOfPlayerTwoClone')
-    scoreOfTwo = scoreOfTwoClone
-    scoreTwo.innerText = scoreOfTwo
 
-       
+    // ------
+ 
 
     function togglePlayPause(){
         backgroundMusic.paused ? backgroundMusic.play() :
@@ -248,7 +252,6 @@ let gif = document.querySelector('.pop-up')
         togglePlayPause()
         
     })
-
 
 
 // --------------------------------------------------------------------------------
@@ -383,14 +386,37 @@ else if(rand2 === 6){
 
     }
 
-    
 
 // --------------------------------------------------------
 
 
+   // LOCAL STORAGE 
+        
+   scoreOfOneClone = +localStorage.getItem('scoreOfPlayerOneClone')
+   scoreOfOne = scoreOfOneClone
+   scoreOne.innerText = scoreOfOne
+           
+   scoreOfTwoClone = +localStorage.getItem('scoreOfPlayerTwoClone')
+   scoreOfTwo = scoreOfTwoClone
+   scoreTwo.innerText = scoreOfTwo
+
+   //    ---------
+
+// --------------------------------------------------------
 // GAME RESET
 resetBtn.addEventListener('click', function() {
     localStorage.clear()
-    window.location = window.location
+    window.location = window.location;
 })
 
+// --------------------------------------------------------
+
+// PAGE 2
+playAgainBtn.addEventListener('click' , function(){
+ window.location = window.location; 
+})
+    
+resetGameBtn.addEventListener('click' , function(){
+window.location = window.location;
+localStorage.clear()    
+})
